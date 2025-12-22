@@ -529,7 +529,10 @@ export const useJellyseerr = () => {
   };
 
   const jellyseerrRegion = useMemo(
-    () => jellyseerrUser?.settings?.discoverRegion || "US",
+    () =>
+      (jellyseerrUser?.settings as any)?.discoverRegion ||
+      (jellyseerrUser?.settings as any)?.region ||
+      "US",
     [jellyseerrUser],
   );
 
